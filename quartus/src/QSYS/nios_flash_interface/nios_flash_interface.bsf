@@ -1,0 +1,94 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 0 0 384 232)
+	(text "nios_flash_interface" (rect 132 -1 212 11)(font "Arial" (font_size 10)))
+	(text "inst" (rect 8 216 20 228)(font "Arial" ))
+	(port
+		(pt 0 72)
+		(input)
+		(text "clock_50_clk" (rect 0 0 51 12)(font "Arial" (font_size 8)))
+		(text "clock_50_clk" (rect 4 61 76 72)(font "Arial" (font_size 8)))
+		(line (pt 0 72)(pt 160 72)(line_width 1))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "reset_n_reset_n" (rect 0 0 67 12)(font "Arial" (font_size 8)))
+		(text "reset_n_reset_n" (rect 4 101 94 112)(font "Arial" (font_size 8)))
+		(line (pt 0 112)(pt 160 112)(line_width 1))
+	)
+	(port
+		(pt 0 152)
+		(input)
+		(text "spi_mediator_external_MISO" (rect 0 0 116 12)(font "Arial" (font_size 8)))
+		(text "spi_mediator_external_MISO" (rect 4 141 160 152)(font "Arial" (font_size 8)))
+		(line (pt 0 152)(pt 160 152)(line_width 1))
+	)
+	(port
+		(pt 0 168)
+		(output)
+		(text "spi_mediator_external_MOSI" (rect 0 0 116 12)(font "Arial" (font_size 8)))
+		(text "spi_mediator_external_MOSI" (rect 4 157 160 168)(font "Arial" (font_size 8)))
+		(line (pt 0 168)(pt 160 168)(line_width 1))
+	)
+	(port
+		(pt 0 184)
+		(output)
+		(text "spi_mediator_external_SCLK" (rect 0 0 119 12)(font "Arial" (font_size 8)))
+		(text "spi_mediator_external_SCLK" (rect 4 173 160 184)(font "Arial" (font_size 8)))
+		(line (pt 0 184)(pt 160 184)(line_width 1))
+	)
+	(port
+		(pt 0 200)
+		(output)
+		(text "spi_mediator_external_SS_n" (rect 0 0 115 12)(font "Arial" (font_size 8)))
+		(text "spi_mediator_external_SS_n" (rect 4 189 160 200)(font "Arial" (font_size 8)))
+		(line (pt 0 200)(pt 160 200)(line_width 1))
+	)
+	(drawing
+		(text "clock_50" (rect 110 43 268 99)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "clk" (rect 165 67 348 144)(font "Arial" (color 0 0 0)))
+		(text "reset_n" (rect 116 83 274 179)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "reset_n" (rect 165 107 372 224)(font "Arial" (color 0 0 0)))
+		(text "spi_mediator_external" (rect 31 123 188 259)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "MISO" (rect 165 147 354 304)(font "Arial" (color 0 0 0)))
+		(text "MOSI" (rect 165 163 354 336)(font "Arial" (color 0 0 0)))
+		(text "SCLK" (rect 165 179 354 368)(font "Arial" (color 0 0 0)))
+		(text "SS_n" (rect 165 195 354 400)(font "Arial" (color 0 0 0)))
+		(text " nios_flash_interface " (rect 293 216 718 442)(font "Arial" ))
+		(line (pt 161 52)(pt 161 76)(line_width 1))
+		(line (pt 162 52)(pt 162 76)(line_width 1))
+		(line (pt 161 92)(pt 161 116)(line_width 1))
+		(line (pt 162 92)(pt 162 116)(line_width 1))
+		(line (pt 161 132)(pt 161 204)(line_width 1))
+		(line (pt 162 132)(pt 162 204)(line_width 1))
+		(line (pt 160 32)(pt 224 32)(line_width 1))
+		(line (pt 224 32)(pt 224 216)(line_width 1))
+		(line (pt 160 216)(pt 224 216)(line_width 1))
+		(line (pt 160 32)(pt 160 216)(line_width 1))
+		(line (pt 0 0)(pt 384 0)(line_width 1))
+		(line (pt 384 0)(pt 384 232)(line_width 1))
+		(line (pt 0 232)(pt 384 232)(line_width 1))
+		(line (pt 0 0)(pt 0 232)(line_width 1))
+	)
+)

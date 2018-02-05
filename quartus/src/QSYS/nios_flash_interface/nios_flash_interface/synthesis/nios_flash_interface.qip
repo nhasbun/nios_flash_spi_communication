@@ -1,0 +1,122 @@
+set_global_assignment -entity "nios_flash_interface" -library "nios_flash_interface" -name IP_TOOL_NAME "Qsys"
+set_global_assignment -entity "nios_flash_interface" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0sp1"
+set_global_assignment -entity "nios_flash_interface" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -library "nios_flash_interface" -name SOPCINFO_FILE [file join $::quartus(qip_path) "../../nios_flash_interface.sopcinfo"]
+set_instance_assignment -entity "nios_flash_interface" -library "nios_flash_interface" -name SLD_INFO "QSYS_NAME nios_flash_interface HAS_SOPCINFO 1 GENERATION_ID 1517857012"
+set_global_assignment -library "nios_flash_interface" -name MISC_FILE [file join $::quartus(qip_path) "../../nios_flash_interface.cmp"]
+set_global_assignment -name SYNTHESIS_ONLY_QIP ON
+set_global_assignment -library "nios_flash_interface" -name MISC_FILE [file join $::quartus(qip_path) "../../nios_flash_interface.qsys"]
+
+set_global_assignment -library "nios_flash_interface" -name VERILOG_FILE [file join $::quartus(qip_path) "nios_flash_interface.v"]
+set_global_assignment -library "nios_flash_interface" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_irq_mapper.sv"]
+set_global_assignment -library "nios_flash_interface" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_arbitrator.sv"]
+set_global_assignment -library "nios_flash_interface" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_rsp_xbar_mux_002.sv"]
+set_global_assignment -library "nios_flash_interface" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_rsp_xbar_demux_002.sv"]
+set_global_assignment -library "nios_flash_interface" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_cmd_xbar_demux_002.sv"]
+set_global_assignment -library "nios_flash_interface" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_rsp_xbar_mux.sv"]
+set_global_assignment -library "nios_flash_interface" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_cmd_xbar_mux.sv"]
+set_global_assignment -library "nios_flash_interface" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_cmd_xbar_demux.sv"]
+set_global_assignment -library "nios_flash_interface" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_reset_controller.v"]
+set_global_assignment -library "nios_flash_interface" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_reset_synchronizer.v"]
+set_global_assignment -library "nios_flash_interface" -name SDC_FILE [file join $::quartus(qip_path) "submodules/altera_reset_controller.sdc"]
+set_global_assignment -library "nios_flash_interface" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_traffic_limiter.sv"]
+set_global_assignment -library "nios_flash_interface" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_avalon_st_pipeline_base.v"]
+set_global_assignment -library "nios_flash_interface" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_id_router_002.sv"]
+set_global_assignment -library "nios_flash_interface" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_addr_router_002.sv"]
+set_global_assignment -library "nios_flash_interface" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_id_router.sv"]
+set_global_assignment -library "nios_flash_interface" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_addr_router.sv"]
+set_global_assignment -library "nios_flash_interface" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_avalon_sc_fifo.v"]
+set_global_assignment -library "nios_flash_interface" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_slave_agent.sv"]
+set_global_assignment -library "nios_flash_interface" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_burst_uncompressor.sv"]
+set_global_assignment -library "nios_flash_interface" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_master_agent.sv"]
+set_global_assignment -library "nios_flash_interface" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_slave_translator.sv"]
+set_global_assignment -library "nios_flash_interface" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_master_translator.sv"]
+set_global_assignment -library "nios_flash_interface" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_SPI_MEDIATOR.v"]
+set_global_assignment -library "nios_flash_interface" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_TIMER.v"]
+set_global_assignment -library "nios_flash_interface" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_JTAG_UART.v"]
+set_global_assignment -library "nios_flash_interface" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_avalon_mm_bridge.v"]
+set_global_assignment -library "nios_flash_interface" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_ONCHIP_RAM.hex"]
+set_global_assignment -library "nios_flash_interface" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_ONCHIP_RAM.v"]
+set_global_assignment -library "nios_flash_interface" -name SDC_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_NIOSII.sdc"]
+set_global_assignment -library "nios_flash_interface" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_NIOSII.v"]
+set_global_assignment -library "nios_flash_interface" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_NIOSII_jtag_debug_module_sysclk.v"]
+set_global_assignment -library "nios_flash_interface" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_NIOSII_jtag_debug_module_tck.v"]
+set_global_assignment -library "nios_flash_interface" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_NIOSII_jtag_debug_module_wrapper.v"]
+set_global_assignment -library "nios_flash_interface" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_NIOSII_ociram_default_contents.mif"]
+set_global_assignment -library "nios_flash_interface" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_NIOSII_oci_test_bench.v"]
+set_global_assignment -library "nios_flash_interface" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_NIOSII_rf_ram_a.mif"]
+set_global_assignment -library "nios_flash_interface" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_NIOSII_rf_ram_b.mif"]
+set_global_assignment -library "nios_flash_interface" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/nios_flash_interface_NIOSII_test_bench.v"]
+
+set_global_assignment -entity "nios_flash_interface_irq_mapper" -library "nios_flash_interface" -name IP_TOOL_NAME "altera_irq_mapper"
+set_global_assignment -entity "nios_flash_interface_irq_mapper" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "nios_flash_interface_irq_mapper" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "nios_flash_interface_rsp_xbar_mux_002" -library "nios_flash_interface" -name IP_TOOL_NAME "altera_merlin_multiplexer"
+set_global_assignment -entity "nios_flash_interface_rsp_xbar_mux_002" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "nios_flash_interface_rsp_xbar_mux_002" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "nios_flash_interface_rsp_xbar_demux_002" -library "nios_flash_interface" -name IP_TOOL_NAME "altera_merlin_demultiplexer"
+set_global_assignment -entity "nios_flash_interface_rsp_xbar_demux_002" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "nios_flash_interface_rsp_xbar_demux_002" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "nios_flash_interface_cmd_xbar_demux_002" -library "nios_flash_interface" -name IP_TOOL_NAME "altera_merlin_demultiplexer"
+set_global_assignment -entity "nios_flash_interface_cmd_xbar_demux_002" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "nios_flash_interface_cmd_xbar_demux_002" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "nios_flash_interface_rsp_xbar_mux" -library "nios_flash_interface" -name IP_TOOL_NAME "altera_merlin_multiplexer"
+set_global_assignment -entity "nios_flash_interface_rsp_xbar_mux" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "nios_flash_interface_rsp_xbar_mux" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "nios_flash_interface_cmd_xbar_mux" -library "nios_flash_interface" -name IP_TOOL_NAME "altera_merlin_multiplexer"
+set_global_assignment -entity "nios_flash_interface_cmd_xbar_mux" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "nios_flash_interface_cmd_xbar_mux" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "nios_flash_interface_cmd_xbar_demux" -library "nios_flash_interface" -name IP_TOOL_NAME "altera_merlin_demultiplexer"
+set_global_assignment -entity "nios_flash_interface_cmd_xbar_demux" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "nios_flash_interface_cmd_xbar_demux" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "altera_reset_controller" -library "nios_flash_interface" -name IP_TOOL_NAME "altera_reset_controller"
+set_global_assignment -entity "altera_reset_controller" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "altera_reset_controller" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "altera_merlin_traffic_limiter" -library "nios_flash_interface" -name IP_TOOL_NAME "altera_merlin_traffic_limiter"
+set_global_assignment -entity "altera_merlin_traffic_limiter" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "altera_merlin_traffic_limiter" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "nios_flash_interface_id_router_002" -library "nios_flash_interface" -name IP_TOOL_NAME "altera_merlin_router"
+set_global_assignment -entity "nios_flash_interface_id_router_002" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "nios_flash_interface_id_router_002" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "nios_flash_interface_addr_router_002" -library "nios_flash_interface" -name IP_TOOL_NAME "altera_merlin_router"
+set_global_assignment -entity "nios_flash_interface_addr_router_002" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "nios_flash_interface_addr_router_002" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "nios_flash_interface_id_router" -library "nios_flash_interface" -name IP_TOOL_NAME "altera_merlin_router"
+set_global_assignment -entity "nios_flash_interface_id_router" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "nios_flash_interface_id_router" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "nios_flash_interface_addr_router" -library "nios_flash_interface" -name IP_TOOL_NAME "altera_merlin_router"
+set_global_assignment -entity "nios_flash_interface_addr_router" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "nios_flash_interface_addr_router" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "altera_avalon_sc_fifo" -library "nios_flash_interface" -name IP_TOOL_NAME "altera_avalon_sc_fifo"
+set_global_assignment -entity "altera_avalon_sc_fifo" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "altera_avalon_sc_fifo" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "altera_merlin_slave_agent" -library "nios_flash_interface" -name IP_TOOL_NAME "altera_merlin_slave_agent"
+set_global_assignment -entity "altera_merlin_slave_agent" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "altera_merlin_slave_agent" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "altera_merlin_master_agent" -library "nios_flash_interface" -name IP_TOOL_NAME "altera_merlin_master_agent"
+set_global_assignment -entity "altera_merlin_master_agent" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "altera_merlin_master_agent" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "altera_merlin_slave_translator" -library "nios_flash_interface" -name IP_TOOL_NAME "altera_merlin_slave_translator"
+set_global_assignment -entity "altera_merlin_slave_translator" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "altera_merlin_slave_translator" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "altera_merlin_master_translator" -library "nios_flash_interface" -name IP_TOOL_NAME "altera_merlin_master_translator"
+set_global_assignment -entity "altera_merlin_master_translator" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "altera_merlin_master_translator" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "nios_flash_interface_SPI_MEDIATOR" -library "nios_flash_interface" -name IP_TOOL_NAME "altera_avalon_spi"
+set_global_assignment -entity "nios_flash_interface_SPI_MEDIATOR" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0.1.99.2"
+set_global_assignment -entity "nios_flash_interface_SPI_MEDIATOR" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "nios_flash_interface_TIMER" -library "nios_flash_interface" -name IP_TOOL_NAME "altera_avalon_timer"
+set_global_assignment -entity "nios_flash_interface_TIMER" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0.1.99.2"
+set_global_assignment -entity "nios_flash_interface_TIMER" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "nios_flash_interface_JTAG_UART" -library "nios_flash_interface" -name IP_TOOL_NAME "altera_avalon_jtag_uart"
+set_global_assignment -entity "nios_flash_interface_JTAG_UART" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0.1.99.2"
+set_global_assignment -entity "nios_flash_interface_JTAG_UART" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "altera_avalon_mm_bridge" -library "nios_flash_interface" -name IP_TOOL_NAME "altera_avalon_mm_bridge"
+set_global_assignment -entity "altera_avalon_mm_bridge" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "altera_avalon_mm_bridge" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "nios_flash_interface_ONCHIP_RAM" -library "nios_flash_interface" -name IP_TOOL_NAME "altera_avalon_onchip_memory2"
+set_global_assignment -entity "nios_flash_interface_ONCHIP_RAM" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0.1.99.2"
+set_global_assignment -entity "nios_flash_interface_ONCHIP_RAM" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "nios_flash_interface_NIOSII" -library "nios_flash_interface" -name IP_TOOL_NAME "altera_nios2_qsys"
+set_global_assignment -entity "nios_flash_interface_NIOSII" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "nios_flash_interface_NIOSII" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
