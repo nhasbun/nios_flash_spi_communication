@@ -72,3 +72,4 @@ quartus/hps_isw_handoff/
 quartus/output_files/
 *.sublime-workspace
 *.qxp
+software/
