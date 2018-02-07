@@ -1,20 +1,4 @@
-/*
- *           Function                  Description
- *        ===============  =====================================
- *        alt_printf       Only supports %s, %x, and %c ( < 1 Kbyte)
- *        alt_putstr       Smaller overhead than puts with direct drivers
- *                         Note this function doesn't add a newline.
- *        alt_putchar      Smaller overhead than putchar with direct drivers
- *        alt_getchar      Smaller overhead than getchar with direct drivers
- *
- */
-
-#include <system.h>
-
-#include "altera_avalon_spi.h"
-#include "sys/alt_stdio.h"
-
-#include <stdint.h> // uints types
+#include "main.h"
 
 #ifdef SPI_MEDIATOR_BASE
 // #elif
