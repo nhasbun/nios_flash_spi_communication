@@ -1,28 +1,43 @@
 #include "main.h"
 
-#ifdef SPI_MEDIATOR_BASE
-// #elif
-#endif
+#define TEST_ADD 0x01FD0000
 
 int main()
 {
-  uint8_t input[20] = { 0 }; // **
-  // Idealmente aca iría un malloc(), pero esto permite ahorrar esa librería
-  // sin mayores problemas.
+  alt_putstr("SPI FLASH INTERFACE!\n");
 
-  alt_putstr("Hello from Nios II!\n");
+  uint8_t value = 0;
 
-  uint8_t comando[4] = {0x90, 0, 0, 0};
-  uint32_t * com_p = (uint32_t*)comando;
+  while(1) {
 
-  alt_avalon_spi_command(SPI_MEDIATOR_BASE, 0, 4, (alt_u8*)com_p, 2, input, 0);
-  alt_printf("%x %x %x %x \n", comando[0], comando[1], comando[2], comando[3]);
-  alt_printf("%c %c \n", input[0], input[1]);
-  alt_printf("%x %x \n", input[0], input[1]);
-  alt_getchar();
+    read_id();
+    write_enable();
 
+    check_status_register_safe();
+    sector_erase(TEST_ADD);
 
-  while(1);
+    check_status_register_safe();
+    write_memory(TEST_ADD, value);
+
+    check_status_register_safe();
+    write_memory(TEST_ADD, value);
+
+    check_status_register_safe();
+    write_disable();
+
+    check_status_register_safe();
+    uint8_t test = read_add(TEST_ADD);
+
+    check_status_register_safe();
+    alt_printf("%x\n", test);
+    check_status_register_safe();
+
+    read_status_register();
+
+    alt_getchar();
+    value++;
+  }
+
   return 0;
 }
 
