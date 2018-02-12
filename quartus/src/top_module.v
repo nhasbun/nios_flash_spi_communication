@@ -8,7 +8,7 @@ module top_module (
   output      FLASH_CE,         //FLASH Chip Enable
   output      FLASH_MOSI_IO0,   //FLASH SI o IO0 mosi
   input       FLASH_MISO_IO1,   //FLASH SO o IO1 miso
-  inout       FLASH_WP_IO2,     //FLASH WP o IO2
+  output      FLASH_WP_IO2,     //FLASH WP o IO2
   inout       FLASH_HOLD_IO3,   //FLASH HOLD o IO3
   output      FLASH_CLK         //FLASH Clock
   );
@@ -32,6 +32,8 @@ nios_flash_interface nios_flash_spi (
   .spi_mediator_external_SCLK (FLASH_CLK),
   .spi_mediator_external_SS_n (FLASH_CE)
 );
+
+assign FLASH_WP_IO2 = GROUND;
 
 // SPI DEBUG
 wire SPI_MOSI, SPI_MISO;

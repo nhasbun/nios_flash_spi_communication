@@ -1,38 +1,27 @@
 #include "main.h"
 
-#define TEST_ADD 0x01FD0000
+#define TEST_ADD 0x00020000
 
 int main()
 {
   alt_putstr("SPI FLASH INTERFACE!\n");
 
-  uint8_t value = 0;
+  uint8_t value = 23;
+
+  clear_status_register();
 
   while(1) {
 
     read_id();
     write_enable();
-
-    check_status_register_safe();
     sector_erase(TEST_ADD);
-
-    check_status_register_safe();
     write_memory(TEST_ADD, value);
-
-    check_status_register_safe();
-    write_memory(TEST_ADD, value);
-
-    check_status_register_safe();
     write_disable();
-
-    check_status_register_safe();
     uint8_t test = read_add(TEST_ADD);
-
-    check_status_register_safe();
     alt_printf("%x\n", test);
-    check_status_register_safe();
 
-    read_status_register();
+    uint8_t status = read_status_register();
+    alt_printf("Status Register: %x\n", status);
 
     alt_getchar();
     value++;
