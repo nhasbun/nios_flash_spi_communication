@@ -14,13 +14,14 @@
 
 // main functions
 void read_id();
-void write_enable();
-void write_disable();
 void sector_erase(uint32_t add);
 void write_memory(uint32_t add, uint8_t value);
 uint8_t read_add(uint32_t add);
 
 // status register related functions
+void write_enable(); // ** write enable se deshabilita después de cada
+// funcion de escritura (revisar 8.2 write enable command en 8. Data Protection)
+void write_disable();
 void clear_status_register();
 uint8_t read_status_register();
 void check_write_enable(bool value_target);

@@ -11,6 +11,10 @@ uint8_t input[20] = { 0 }; // **
 // Idealmente aca iría un malloc(), pero esto permite ahorrar esa librería
 // sin mayores problemas.
 
+// ****************************************************************************
+// *                        FUNCIONES DE IDENTIFICACION                       *
+// ****************************************************************************
+
 void read_id()
 {
   alt_putstr("\n");
@@ -24,24 +28,9 @@ void read_id()
   alt_printf("%x %x \n", input[0], input[1]);
 }
 
-void write_enable()
-{
-  alt_putstr("\n");
-  alt_putstr("*** Write enable ***\n");
-
-  // write enable
-  uint8_t wren = 0x06;
-  alt_avalon_spi_command(SPI_MEDIATOR_BASE, 0, 1, (alt_u8*) &wren, 0, input, 0);
-  check_write_enable(true);
-}
-
-void write_disable()
-{
-  // write disable
-  uint8_t wrdi = 0x04;
-  alt_avalon_spi_command(SPI_MEDIATOR_BASE, 0, 1, (alt_u8*) &wrdi, 0, input, 0);
-  check_write_enable(false);
-}
+// ****************************************************************************
+// *                          FUNCIONES DE ESCRITURA                          *
+// ****************************************************************************
 
 void sector_erase(uint32_t add)
 {
@@ -63,7 +52,6 @@ void sector_erase(uint32_t add)
     comando[3],
     comando[4],
     comando[5]);
-  usleep(1000);
   check_write_in_progress();
 }
 
@@ -71,6 +59,10 @@ void write_memory(uint32_t add, uint8_t value)
 {
   alt_putstr("\n");
   alt_putstr("*** Write to memory ***\n");
+
+  write_enable();
+  sector_erase(add); // ** write enable se deshabilita con cada fn de escritura
+  write_enable();
 
   // page programming (write action)
   uint8_t address_splitted[4] = {0};
@@ -109,9 +101,29 @@ uint8_t read_add(uint32_t add)
   return input[0];
 }
 
+// ****************************************************************************
+// *                     STATUS REGISTER RELATED FUNCTIONS                    *
+// ****************************************************************************
 
+void write_enable()
+{
+  alt_putstr("\n");
+  alt_putstr("*** Write enable ***\n");
 
-// *** STATUS REGISTER RELATED FUNCTIONS ***
+  // write enable
+  uint8_t wren = 0x06;
+  alt_avalon_spi_command(SPI_MEDIATOR_BASE, 0, 1, (alt_u8*) &wren, 0, input, 0);
+  check_write_enable(true);
+}
+
+void write_disable()
+{
+  // write disable
+  uint8_t wrdi = 0x04;
+  alt_avalon_spi_command(SPI_MEDIATOR_BASE, 0, 1, (alt_u8*) &wrdi, 0, input, 0);
+  check_write_enable(false);
+}
+
 void clear_status_register()
 {
   alt_putstr("\n");
@@ -154,7 +166,9 @@ uint8_t read_status_register()
   return input[0];
 }
 
-// *** UTILITY FUNCTIONS ***
+// ****************************************************************************
+// *                             UTILITY FUNCTIONS                            *
+// ****************************************************************************
 
 void split_32_to_8_bits(uint32_t number, uint8_t * pointer)
 {
