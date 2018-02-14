@@ -73,3 +73,4 @@ quartus/output_files/
 *.sublime-workspace
 *.qxp
 software/
+quartus/.qsys_edit/
