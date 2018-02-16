@@ -17,6 +17,7 @@ void read_id();
 void sector_erase(uint32_t add);
 void write_memory(uint32_t add, uint8_t value);
 uint8_t read_add(uint32_t add);
+void read_add_bulk(uint32_t add, uint32_t num_data, uint8_t * data);
 
 // status register related functions
 void write_enable(); // ** write enable se deshabilita después de cada

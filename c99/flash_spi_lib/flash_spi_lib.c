@@ -94,11 +94,30 @@ uint8_t read_add(uint32_t add)
   // Construccion de comando
   uint8_t comando[5] = {0x13, address[0], address[1], address[2], address[3]};
 
-  alt_avalon_spi_command(SPI_MEDIATOR_BASE, 0, 5, (alt_u8*)comando, 1, input, 0);
+  alt_avalon_spi_command(SPI_MEDIATOR_BASE, 0, 5,
+    (alt_u8*)comando, 1, input, 0);
   alt_printf("%x %x %x %x %x\n",
     comando[0], comando[1], comando[2], comando[3], comando[4]);
 
   return input[0];
+}
+
+void read_add_bulk(uint32_t add, uint32_t num_data, uint8_t * data)
+// Funcion para realizar lectura de múltiples elementos
+// La dirección add da el inicio del lugar de lectura y luego los elementos de
+// las siguientes direcciones salen de forma automática.
+{
+  alt_putstr("\n*** READ ADDRESS BULK ***\n");
+
+  uint8_t address[4] = { 0 };
+  split_32_to_8_bits(add, address);
+
+  // Construccion de comando
+  uint8_t comando[5] = {0x13, address[0], address[1], address[2], address[3]};
+  alt_avalon_spi_command(SPI_MEDIATOR_BASE, 0, 5, (alt_u8*)comando,
+                         num_data, data, 0);
+  alt_printf("%x %x %x %x %x\n",
+    comando[0], comando[1], comando[2], comando[3], comando[4]);
 }
 
 // ****************************************************************************
