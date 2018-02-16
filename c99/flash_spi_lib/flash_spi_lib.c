@@ -23,16 +23,32 @@ void read_id()
   uint8_t comando[4] = {0};
   split_32_to_8_bits(0x90000000, comando);
 
-  alt_avalon_spi_command(SPI_MEDIATOR_BASE, 0, 4, (alt_u8*)comando, 2, input, 0);
+  alt_avalon_spi_command(SPI_MEDIATOR_BASE, 0, 4,
+    (alt_u8*)comando, 2, input, 0);
   alt_printf("%x %x %x %x \n", comando[0], comando[1], comando[2], comando[3]);
   alt_printf("%x %x \n", input[0], input[1]);
 }
 
 // ****************************************************************************
-// *                          FUNCIONES DE LECTURA/ESCRITURA                  *
+// *                      FUNCIONES DE LECTURA/ESCRITURA                      *
 // ****************************************************************************
 
 void sector_erase(uint32_t add)
+
+// Antes de escribir a alguna dirección su valor debe estar borrado con
+// sector erase según la siguiente distribucion :
+
+// 4kbyte x 32    -- sectors SA00  -- address range 0x0000_0000 - 0x0000_0FFF
+//                -- sectors ....  -- address range ........................
+//                -- sectors SA31  -- address range 0x0001_F000 - 0x0001_FFFF
+// 64kbyte x 510  -- sectors SA32  -- address range 0x0002_0000 - 0x0002_FFFF
+//                -- sectors ....  -- address range ........................
+//                -- sectors SA541 -- address range 0x01FF_0000 - 0x0002_FFFF
+
+// -Nota: Sector erase es una funcion de escritura y necesita un flanco de WE
+// cuando se ejecuta esta acción. Se deshabilita inmeditamente después de
+// ejecutada
+
 {
   alt_putstr("\n");
   alt_putstr("*** Clear memory sector ***\n");
@@ -44,7 +60,8 @@ void sector_erase(uint32_t add)
   uint8_t comando[5] = {0xdc, address_splitted[0], address_splitted[1],
     address_splitted[2], address_splitted[3]};
 
-  alt_avalon_spi_command(SPI_MEDIATOR_BASE, 0, 5, (alt_u8*)comando, 0, input, 0);
+  alt_avalon_spi_command(SPI_MEDIATOR_BASE, 0, 5,
+    (alt_u8*)comando, 0, input, 0);
   alt_printf("%x\n %x %x %x %x\n",
     comando[0],
     comando[1],
@@ -52,17 +69,20 @@ void sector_erase(uint32_t add)
     comando[3],
     comando[4],
     comando[5]);
+
+  // lock function until write completes
   check_write_in_progress();
 }
 
 void write_memory(uint32_t add, uint8_t value)
+
+// Funcion simple de escritura a una dirección de memoria.
+// Se necesita la dirección limpia con la funcion sector erase y un flanco de
+// WE activado en el status register.
+
 {
   alt_putstr("\n");
   alt_putstr("*** Write to memory ***\n");
-
-  write_enable();
-  sector_erase(add); // ** write enable se deshabilita con cada fn de escritura
-  write_enable();
 
   // page programming (write action)
   uint8_t address_splitted[4] = {0};
@@ -71,7 +91,8 @@ void write_memory(uint32_t add, uint8_t value)
   uint8_t comando[6] = {0x12, address_splitted[0], address_splitted[1],
     address_splitted[2], address_splitted[3], value};
 
-  alt_avalon_spi_command(SPI_MEDIATOR_BASE, 0, 6, (alt_u8*)comando, 0, input, 0);
+  alt_avalon_spi_command(SPI_MEDIATOR_BASE, 0, 6,
+    (alt_u8*)comando, 0, input, 0);
   alt_printf("%x\n %x %x %x %x\n %x\n",
     comando[0],
     comando[1],
@@ -80,13 +101,14 @@ void write_memory(uint32_t add, uint8_t value)
     comando[4],
     comando[5],
     comando[6]);
+
+  // lock function until write completes
   check_write_in_progress();
 }
 
 uint8_t read_add(uint32_t add)
 {
-  alt_putstr("\n");
-  alt_putstr("*** READ ADDRESS ***\n");
+  alt_putstr("\n*** READ ADDRESS ***\n");
 
   uint8_t address[4] = { 0 };
   split_32_to_8_bits(add, address);
