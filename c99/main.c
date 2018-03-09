@@ -1,6 +1,7 @@
 #include "main.h"
 
 #define TEST_ADD 0x01FFF000 // Sector SA541 64kbyte
+#define N_DATA 64 // Cantidad de datos para probar rutinas de lectura
 
 // Pequeña rutina para testear la librería de escritura y lectura
 // a memoria flash
@@ -9,7 +10,9 @@ int main()
 {
   alt_putstr("SPI FLASH INTERFACE!\n");
 
-  test2();
+  read_id();
+
+  read_routine();
 
   while(1);
 
@@ -59,3 +62,42 @@ void test2()
   alt_printf("%x\n", data[0]);
   alt_printf("%x\n", data[1]);
 }
+
+void write_routine()
+{
+  alt_printf("write_routine\n");
+
+  write_enable();
+  sector_erase(TEST_ADD);
+
+  int ii = 0;
+  for (ii = 0; ii < 64; ii++) {
+    write_enable();
+    write_memory(TEST_ADD + ii, (uint8_t)ii);
+  }
+
+  alt_printf("DONE\n");
+}
+
+void read_routine()
+{
+
+  uint8_t data[N_DATA] = {0};
+  read_add_bulk(TEST_ADD, N_DATA, data);
+
+  alt_printf("READING\n");
+
+  int ii = 0;
+  for (ii = 0; ii < N_DATA; ii++) {
+    alt_printf("%x\n", data[ii]);
+  }
+
+  alt_printf("DONE\n");
+}
+
+
+
+
+
+
+

@@ -6,5 +6,7 @@
 
 void test1();
 void test2();
+void write_routine();
+void read_routine();
 
 
