@@ -72,7 +72,7 @@
    {
       datum baseAddress
       {
-         value = "4160";
+         value = "8256";
          type = "String";
       }
    }
@@ -125,7 +125,7 @@
    {
       datum baseAddress
       {
-         value = "4128";
+         value = "8224";
          type = "String";
       }
    }
@@ -133,7 +133,7 @@
    {
       datum baseAddress
       {
-         value = "4096";
+         value = "8192";
          type = "String";
       }
    }
@@ -152,7 +152,7 @@
  <parameter name="projectName" value="" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1517856979250" />
+ <parameter name="timeStamp" value="1520868009086" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clock_50" internal="CLOCK.clk_in" type="clock" dir="end" />
@@ -269,8 +269,8 @@
   <parameter name="tightlyCoupledInstructionMaster1AddrWidth" value="1" />
   <parameter name="tightlyCoupledInstructionMaster2AddrWidth" value="1" />
   <parameter name="tightlyCoupledInstructionMaster3AddrWidth" value="1" />
-  <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='ONCHIP_RAM.s1' start='0x1000000' end='0x1001000' /><slave name='SPI_MEDIATOR.spi_control_port' start='0x1001000' end='0x1001020' /><slave name='TIMER.s1' start='0x1001020' end='0x1001040' /><slave name='JTAG_UART.avalon_jtag_slave' start='0x1001040' end='0x1001048' /><slave name='NIOSII.jtag_debug_module' start='0x2000800' end='0x2001000' /></address-map>]]></parameter>
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='ONCHIP_RAM.s1' start='0x1000000' end='0x1001000' /><slave name='SPI_MEDIATOR.spi_control_port' start='0x1001000' end='0x1001020' /><slave name='TIMER.s1' start='0x1001020' end='0x1001040' /><slave name='JTAG_UART.avalon_jtag_slave' start='0x1001040' end='0x1001048' /><slave name='NIOSII.jtag_debug_module' start='0x2000800' end='0x2001000' /></address-map>]]></parameter>
+  <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='ONCHIP_RAM.s1' start='0x1000000' end='0x1002000' /><slave name='SPI_MEDIATOR.spi_control_port' start='0x1002000' end='0x1002020' /><slave name='TIMER.s1' start='0x1002020' end='0x1002040' /><slave name='JTAG_UART.avalon_jtag_slave' start='0x1002040' end='0x1002048' /><slave name='NIOSII.jtag_debug_module' start='0x2000800' end='0x2001000' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='ONCHIP_RAM.s1' start='0x1000000' end='0x1002000' /><slave name='SPI_MEDIATOR.spi_control_port' start='0x1002000' end='0x1002020' /><slave name='TIMER.s1' start='0x1002020' end='0x1002040' /><slave name='JTAG_UART.avalon_jtag_slave' start='0x1002040' end='0x1002048' /><slave name='NIOSII.jtag_debug_module' start='0x2000800' end='0x2001000' /></address-map>]]></parameter>
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="deviceFamilyName" value="Cyclone IV E" />
   <parameter name="internalIrqMaskSystemInfo" value="7" />
@@ -297,7 +297,7 @@
   <parameter name="initMemContent" value="true" />
   <parameter name="initializationFileName" value="onchip_mem.hex" />
   <parameter name="instanceID" value="NONE" />
-  <parameter name="memorySize" value="4096" />
+  <parameter name="memorySize" value="8192" />
   <parameter name="readDuringWriteMode" value="DONT_CARE" />
   <parameter name="simAllowMRAMContentsFile" value="false" />
   <parameter name="simMemInitOnlyFilename" value="0" />
@@ -452,7 +452,7 @@
    start="BRIDGE.m0"
    end="JTAG_UART.avalon_jtag_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x1040" />
+  <parameter name="baseAddress" value="0x2040" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -466,7 +466,7 @@
  <connection kind="reset" version="13.0" start="CLOCK.clk_reset" end="TIMER.reset" />
  <connection kind="avalon" version="13.0" start="BRIDGE.m0" end="TIMER.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x1020" />
+  <parameter name="baseAddress" value="0x2020" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="interrupt" version="13.0" start="NIOSII.d_irq" end="TIMER.irq">
@@ -484,7 +484,7 @@
    start="BRIDGE.m0"
    end="SPI_MEDIATOR.spi_control_port">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x1000" />
+  <parameter name="baseAddress" value="0x2000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
