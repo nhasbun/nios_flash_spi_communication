@@ -7,6 +7,9 @@
 // Reduced library similar to stdio.h
 // alt_getchar(), alt_putchar(), alt_putstr(), alt_printf()
 
+#define WRITE_BUFFER 50 // buffer para la fn write_add_bulk(), cantidad de
+  // bits maximos a escribir
+
 
 // ****************************************************************************
 // *                              MAIN INTERFACE                              *
@@ -23,6 +26,7 @@ void sector_erase(uint32_t add);
 void write_memory(uint32_t add, uint8_t value);
 uint8_t read_add(uint32_t add);
 void read_add_bulk(uint32_t add, uint32_t num_data, uint8_t * data);
+void write_add_bulk(uint32_t add, uint32_t num_data, uint8_t * data);
 
 // __ status register related functions __
 

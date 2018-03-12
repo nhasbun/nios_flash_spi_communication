@@ -136,10 +136,40 @@ void read_add_bulk(uint32_t add, uint32_t num_data, uint8_t * data)
 
   // Construccion de comando
   uint8_t comando[5] = {0x13, address[0], address[1], address[2], address[3]};
+
   alt_avalon_spi_command(SPI_MEDIATOR_BASE, 0, 5, (alt_u8*)comando,
                          num_data, data, 0);
   alt_printf("%x %x %x %x %x\n",
     comando[0], comando[1], comando[2], comando[3], comando[4]);
+}
+
+void write_add_bulk(uint32_t add, const uint32_t num_data, uint8_t * data)
+{
+  alt_putstr("\n*** WRITE ADDRESS BULK ***\n");
+
+  uint8_t address[4] = { 0 };
+  split_32_to_8_bits(add, address);
+
+  // Construccion de comando
+  uint8_t comando[WRITE_BUFFER] =
+    {0x12, address[0], address[1], address[2], address[3]};
+
+  uint8_t i = 0;
+  for (i = 0; i < num_data; i++) {
+    comando[5 + i] = *(data + i);
+  }
+
+  alt_avalon_spi_command(SPI_MEDIATOR_BASE, 0, 5 + num_data, (alt_u8*)comando,
+                         0, NULL, 0);
+
+  for(i=0; i < 5 + num_data; i++){
+    if (i == 4)
+      alt_printf("%x\n",comando[i]);
+    else
+      alt_printf("%x ",comando[i]);
+  }
+  alt_printf("\n");
+  check_write_in_progress();
 }
 
 // ****************************************************************************

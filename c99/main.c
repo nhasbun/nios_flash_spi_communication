@@ -12,7 +12,23 @@ int main()
 
   read_id();
 
-  read_routine();
+  uint8_t numeros[5] = {1, 2, 3, 4, 5};
+
+  write_enable();
+  sector_erase(TEST_ADD);
+
+  write_enable();
+  write_add_bulk(TEST_ADD, 5, numeros);
+
+  uint8_t data[5] = {0};
+  read_add_bulk(TEST_ADD, 5, data);
+
+  alt_printf("Datos en memoria\n");
+  alt_printf("%x\n", data[0]);
+  alt_printf("%x\n", data[1]);
+  alt_printf("%x\n", data[2]);
+  alt_printf("%x\n", data[3]);
+  alt_printf("%x\n", data[4]);
 
   while(1);
 
@@ -94,6 +110,8 @@ void read_routine()
 
   alt_printf("DONE\n");
 }
+
+
 
 
 
