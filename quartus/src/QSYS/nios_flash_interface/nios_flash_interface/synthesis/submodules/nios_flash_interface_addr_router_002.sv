@@ -136,16 +136,16 @@ module nios_flash_interface_addr_router_002
     // Figure out the number of bits to mask off for each slave span
     // during address decoding
     // -------------------------------------------------------
-    localparam PAD0 = log2ceil(64'h2000 - 64'h0); 
-    localparam PAD1 = log2ceil(64'h2020 - 64'h2000); 
-    localparam PAD2 = log2ceil(64'h2040 - 64'h2020); 
-    localparam PAD3 = log2ceil(64'h2048 - 64'h2040); 
+    localparam PAD0 = log2ceil(64'h1000 - 64'h0); 
+    localparam PAD1 = log2ceil(64'h1020 - 64'h1000); 
+    localparam PAD2 = log2ceil(64'h1040 - 64'h1020); 
+    localparam PAD3 = log2ceil(64'h1048 - 64'h1040); 
     // -------------------------------------------------------
     // Work out which address bits are significant based on the
     // address range of the slaves. If the required width is too
     // large or too small, we use the address field width instead.
     // -------------------------------------------------------
-    localparam ADDR_RANGE = 64'h2048;
+    localparam ADDR_RANGE = 64'h1048;
     localparam RANGE_ADDR_WIDTH = log2ceil(ADDR_RANGE);
     localparam OPTIMIZED_ADDR_H = (RANGE_ADDR_WIDTH > PKT_ADDR_W) ||
                                   (RANGE_ADDR_WIDTH == 0) ?
@@ -188,26 +188,26 @@ module nios_flash_interface_addr_router_002
         // Sets the channel and destination ID based on the address
         // --------------------------------------------------
 
-    // ( 0x0 .. 0x2000 )
-    if ( {address[RG:PAD0],{PAD0{1'b0}}} == 14'h0   ) begin
+    // ( 0x0 .. 0x1000 )
+    if ( {address[RG:PAD0],{PAD0{1'b0}}} == 13'h0   ) begin
             src_channel = 4'b0001;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 1;
     end
 
-    // ( 0x2000 .. 0x2020 )
-    if ( {address[RG:PAD1],{PAD1{1'b0}}} == 14'h2000   ) begin
+    // ( 0x1000 .. 0x1020 )
+    if ( {address[RG:PAD1],{PAD1{1'b0}}} == 13'h1000   ) begin
             src_channel = 4'b1000;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 2;
     end
 
-    // ( 0x2020 .. 0x2040 )
-    if ( {address[RG:PAD2],{PAD2{1'b0}}} == 14'h2020   ) begin
+    // ( 0x1020 .. 0x1040 )
+    if ( {address[RG:PAD2],{PAD2{1'b0}}} == 13'h1020   ) begin
             src_channel = 4'b0100;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 3;
     end
 
-    // ( 0x2040 .. 0x2048 )
-    if ( {address[RG:PAD3],{PAD3{1'b0}}} == 14'h2040   ) begin
+    // ( 0x1040 .. 0x1048 )
+    if ( {address[RG:PAD3],{PAD3{1'b0}}} == 13'h1040   ) begin
             src_channel = 4'b0010;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 0;
     end
