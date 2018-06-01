@@ -2,7 +2,7 @@ set_global_assignment -entity "nios_flash_interface" -library "nios_flash_interf
 set_global_assignment -entity "nios_flash_interface" -library "nios_flash_interface" -name IP_TOOL_VERSION "13.0sp1"
 set_global_assignment -entity "nios_flash_interface" -library "nios_flash_interface" -name IP_TOOL_ENV "Qsys"
 set_global_assignment -library "nios_flash_interface" -name SOPCINFO_FILE [file join $::quartus(qip_path) "../../nios_flash_interface.sopcinfo"]
-set_instance_assignment -entity "nios_flash_interface" -library "nios_flash_interface" -name SLD_INFO "QSYS_NAME nios_flash_interface HAS_SOPCINFO 1 GENERATION_ID 1520877988"
+set_instance_assignment -entity "nios_flash_interface" -library "nios_flash_interface" -name SLD_INFO "QSYS_NAME nios_flash_interface HAS_SOPCINFO 1 GENERATION_ID 1527871601"
 set_global_assignment -library "nios_flash_interface" -name MISC_FILE [file join $::quartus(qip_path) "../../nios_flash_interface.cmp"]
 set_global_assignment -name SYNTHESIS_ONLY_QIP ON
 set_global_assignment -library "nios_flash_interface" -name MISC_FILE [file join $::quartus(qip_path) "../../nios_flash_interface.qsys"]

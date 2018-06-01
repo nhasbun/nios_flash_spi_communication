@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE55F23) Path("E:/ownCloud/Ecografo/Desarrollo/FPGA/pruebas/_niosii_gen1/nios_flash_test/output_files/") File("nios_flash_test.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE55F23) Path("E:/nios_flash_spi_communication/quartus/output_files/") File("nios_flash_test.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
