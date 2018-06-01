@@ -30,6 +30,21 @@ void read_id()
 }
 
 // ****************************************************************************
+// *                              RESET FUNCTION                              *
+// ****************************************************************************
+
+void reset_command()
+{
+  alt_putstr("\n");
+  alt_putstr("*** SOFTWARE RESET ***\n");
+
+  uint8_t comando = 0xf0;
+
+  alt_avalon_spi_command(SPI_MEDIATOR_BASE, 0, 1, &comando, 0, input, 0);
+  alt_putstr("*** DONE ***\n");
+}
+
+// ****************************************************************************
 // *                      FUNCIONES DE LECTURA/ESCRITURA                      *
 // ****************************************************************************
 
@@ -170,6 +185,13 @@ void write_add_bulk(uint32_t add, const uint32_t num_data, uint8_t * data)
   }
   alt_printf("\n");
   check_write_in_progress();
+}
+
+void read_autoboot(uint32_t num_data, uint8_t * data)
+{
+  alt_putstr("\n*** READ AUTOBOOT ***\n");
+  alt_avalon_spi_command(SPI_MEDIATOR_BASE, 0, 0, NULL,
+                         num_data, data, 0);
 }
 
 // ****************************************************************************
